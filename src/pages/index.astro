@@ -1,16 +1,44 @@
 ---
+import MainLayout from "../layouts/MainLayout.astro";
+import Tooltip from "../components/tooltip.svelte";
 
+const FEAT_JOIN = false;
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<MainLayout title="Home">
+  <section class="sec-a">
+    <div class="container">
+      <h1>A New Pace</h1>
+      <p>Learning by making useful projects.</p>
+    </div>
+  </section>
+  <section class="sec-b">
+    <h1>Modern X Minimal</h1>
+    <p>Simple but powerful as possible as it can be.</p>
+  </section>
+  {
+    FEAT_JOIN && (
+      <>
+        <section class="sec-c">
+          <h1>Join?</h1>
+          <p>
+            you can join{" "}
+            <Tooltip tip="It's just me for now" client:idle>
+              us
+            </Tooltip>{" "}
+            and become a member of our movement.
+          </p>
+          <a href="/join" class="join">
+            <big>Let&apos;s begin</big>
+          </a>
+        </section>
+      </>
+    )
+  }
+</MainLayout>
+
+<style>
+  h1 {
+    font-weight: 100;
+  }
+</style>

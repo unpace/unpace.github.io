@@ -1,0 +1,36 @@
+---
+import "../lib/style.scss"
+
+
+const { title } = Astro.props
+
+export interface Props {
+    title: string
+}
+---
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+
+    <title>Unpace - {title}</title>
+</head>
+<body>
+    <main>
+        <header>
+            <span class="logo">unpace</span>
+        </header>
+        <article>
+        <slot />
+
+        </article>
+        <footer>
+            2024 &copy; unpace
+        </footer>
+    </main>
+</body>
+</html>
